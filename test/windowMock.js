@@ -7,7 +7,7 @@ const canvas = {
 const view = {
     name: "view",
     addChild: function(child) {
-        children.push(child);
+        this.children.push(child);
     },
     children: []
 }
@@ -15,6 +15,9 @@ const view = {
 const windowMock = {
     getCircleID: function() {
         return circleID;
+    },
+    setCircleID: function(x) {
+        circleID = x;
     },
     opspark: {
         draw: {
@@ -45,7 +48,8 @@ const windowMock = {
         makeApp: function() {
             return {
                 canvas: canvas,
-                view: view
+                view: view,
+                addUpdateable: function(){}
             }
         }
     }
